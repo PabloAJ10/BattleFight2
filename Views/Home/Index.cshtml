@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.NombreUsuario))
+{
+    <div class="display-4">
+        Hola @ViewBag.NombreUsuario
+    </div>
+}

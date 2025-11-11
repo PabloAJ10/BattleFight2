@@ -1,0 +1,179 @@
+﻿
+/* Estilos generales para la página de inicio de sesión */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Asegura que la página ocupe toda la altura de la ventana */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #262323; /* Color de fondo de la página */
+}
+
+h1 {
+    color: #d9b0ff; /* Cambia este valor por el color que desees */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Color de fondo del error */
+    color: #721c24; /* Color del texto del error */
+    border: 1px solid #f5c6cb; /* Borde rojo claro */
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espacio abajo del mensaje */
+    font-size: 1.1em; /* Tamaño de fuente */
+}
+
+p {
+    color: #d9b0ff; /* Cambia este valor por el color que desees */
+}
+
+a {
+    color: #d9b0ff; /* Cambia este valor por el color que desees */
+    text-decoration: none; /* Elimina el subrayado (opcional) */
+}
+
+    a:hover {
+        color: #16a085; /* Cambia el color cuando el usuario pase el ratón sobre el enlace */
+    }
+
+
+.group {
+    position: relative;
+    margin-bottom: 30px; /* Espacio entre los campos */
+}
+
+.input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+    .input:focus {
+        outline: none;
+    }
+
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.input:focus ~ label,
+.input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+    .bar:before,
+    .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #5264AE;
+        transition: 0.2s ease all;
+    }
+
+    .bar:before {
+        left: 50%;
+    }
+
+    .bar:after {
+        right: 50%;
+    }
+
+.input:focus ~ .bar:before,
+.input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/*Boton de ingresar*/
+/* From Uiverse.io by cssbuttons-io */
+button {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color), 0 0 4em 1em var(--glow-spread-color), inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+}
+
+    button::after {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 120%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--glow-spread-color);
+        filter: blur(2em);
+        opacity: .7;
+        transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+    }
+
+    button:hover {
+        color: var(--glow-color);
+        background-color: var(--glow-color);
+        box-shadow: 0 0 1em .25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 .75em .25em var(--glow-color);
+    }
+
+    button:active {
+        box-shadow: 0 0 0.6em .25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 .5em .25em var(--glow-color);
+    }

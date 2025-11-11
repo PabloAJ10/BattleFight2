@@ -1,0 +1,51 @@
+﻿@model BattleFight.Models.Torneo
+
+@{
+    ViewData["Title"] = "TorneoAgregar";
+}
+<script>
+    function confirmarAgregar() {
+        return confirm("¿Está seguro de agregar este torneo?");
+    }
+</script>
+
+<h1>Agregar torneo</h1>
+
+<h4>Torneo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CodigoNumerico" class="control-label"></label>
+                <input asp-for="CodigoNumerico" class="form-control" required />
+                <span asp-validation-for="CodigoNumerico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PremioDolares" class="control-label"></label>
+                <input asp-for="PremioDolares" class="form-control" required />
+                <span asp-validation-for="PremioDolares" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CategoriaEnfrentar" class="control-label"></label>
+                <select id="CategoriaEnfrentar" name="CategoriaEnfrentar" required>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Middle">Middle</option>
+                    <option value="Expert">Expert</option>
+                </select><br><br>
+                <span asp-validation-for="CategoriaEnfrentar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" onclick="return confirmarAgregar();" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>
+

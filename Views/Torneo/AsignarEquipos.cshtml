@@ -1,0 +1,25 @@
+﻿@model List<BattleFight.Models.Equipo>
+
+@{
+    ViewBag.Title = "Asignar Equipos";
+    var torneo = ViewBag.Torneo as BattleFight.Models.Torneo;
+}
+
+<h2>Asignar Equipos al Torneo: @torneo.CodigoNumerico</h2>
+
+<form asp-action="DeterminarGanador" method="post">
+    <input type="hidden" name="torneoid" value="@torneo.TorneoId" />
+    <div>
+        @foreach (var equipo in Model)
+        {
+            <div>
+                <input type="checkbox" name="idsEquipos" value="@equipo.EquipoId" /> @equipo.NombreEquipo - Puntaje: @equipo.Puntaje
+            </div>
+        }
+    </div>
+    <button type="submit">Determinar Ganador</button>
+</form>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>

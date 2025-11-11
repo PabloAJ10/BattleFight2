@@ -1,0 +1,78 @@
+﻿@model BattleFight.Models.Equipo
+
+@{
+    ViewData["Title"] = "EquipoAgregar";
+}
+
+<script>
+    function confirmarAgregar() {
+        return confirm("¿Está seguro de agregar este equipo?");
+    }
+</script>
+
+<h1>Agregar Equipo</h1>
+
+<h4>Equipo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="NombreEquipo" class="control-label"></label>
+                <input asp-for="NombreEquipo" class="form-control" required />
+                <span asp-validation-for="NombreEquipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alias1" class="control-label"></label>
+                <input asp-for="Alias1" class="form-control" required />
+                <span asp-validation-for="Alias1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alias2" class="control-label"></label>
+                <input asp-for="Alias2" class="form-control" required />
+                <span asp-validation-for="Alias2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alias3" class="control-label"></label>
+                <input asp-for="Alias3" class="form-control" required />
+                <span asp-validation-for="Alias3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alias4" class="control-label"></label>
+                <input asp-for="Alias4" class="form-control" required />
+                <span asp-validation-for="Alias4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Puntaje" class="control-label"></label>
+                <select asp-for="Puntaje" class="form-control">
+                    @for (int i = 1; i <= 100; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+                <span asp-validation-for="Puntaje" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <select id="Categoria" name="Categoria">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Middle">Middle</option>
+                    <option value="Expert">Expert</option>
+                </select>
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" onclick="return confirmarAgregar();" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>
+

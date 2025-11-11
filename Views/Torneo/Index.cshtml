@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BattleFight.Models.Torneo>
+
+@{
+    ViewData["Title"] = "Torneo";
+}
+
+<h2>Lista de torneos</h2>
+
+<p>
+    <a asp-action="Create">Agregar un torneo</a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TorneoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoNumerico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaTorneo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PremioDolares)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaEnfrentar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ganador)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TorneoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoNumerico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaTorneo)
+             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PremioDolares)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaEnfrentar)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ganador)
+                </td>
+            <td>
+                   
+
+                    <a href="@Url.Action("Edit", "Torneo", new { torneoid = item.TorneoId})" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Delete", "Torneo", new { torneoid = item.TorneoId })" class="btn btn-danger">Eliminar</a>
+                    <a href="@Url.Action("AsignarEquipos", "Torneo", new { torneoid = item.TorneoId })" class="btn btn-info">Asignar Equipos</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

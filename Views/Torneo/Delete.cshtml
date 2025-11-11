@@ -1,0 +1,56 @@
+﻿@model BattleFight.Models.Torneo
+
+@{
+    ViewData["Title"] = "EliminarConfirmar";
+}
+
+<h2>Eliminar Torneo</h2>
+
+<h3>Seguro que desea eliminar este torneo?</h3>
+<div>
+    <h4>Datos Torneo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TorneoId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TorneoId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodigoNumerico)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodigoNumerico)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaTorneo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaTorneo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PremioDolares)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PremioDolares)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoriaEnfrentar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoriaEnfrentar)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ganador)
+        </dd>
+    </dl>
+    
+   
+    <form asp-action="DeleteConfirmed">
+       
+        <input type="hidden" asp-for="TorneoId" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">NO eliminar, regresar</a>
+    </form>
+</div>
